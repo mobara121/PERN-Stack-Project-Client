@@ -6,7 +6,6 @@ switch (window.location.hostname) {
         break;
     case 'kcp-pieclient.herokuapp.com':
         APIURL = 'http://kcp-pieapi.herokuapp.com'
-        
 }
 
 

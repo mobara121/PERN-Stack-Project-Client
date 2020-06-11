@@ -37,11 +37,12 @@ function App() {
     return (sessionToken === localStorage.getItem('token')? <RestaurantInfo token={sessionToken}/> : <UserIndex updateToken={updateToken}/>)
   }
 
-  componentDidMount(){
+  useEffect(() => {
     fetch(`${APIURL}/pie`)
     .then(response => response.json())
     .then(pies => this.setState({pies}))
-  }
+  }, []) 
+  
 
   return (
     <Router>
