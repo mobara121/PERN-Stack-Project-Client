@@ -1,0 +1,118 @@
+@import url(https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap);
+
+@import url(https://fonts.googleapis.com/earlyaccess/kokoro.css);
+
+
+body {
+  background-image: url('./assets/fujinraijin.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  font-family: 'Gloria Hallelujah', cursive;
+}
+
+.title {
+  text-align: center;
+}
+.title-en {
+  font-family: 'Gloria Hallelujah', cursive;
+  font-size:100px; 
+  color: black;
+  text-align: center;  
+  margin-top: 40px;
+}
+
+.title-jp {
+  font-size: 60px;
+  font-weight: bold;
+  color: black;
+  text-align: center;
+  font-family: 'Kokoro';
+}
+
+.App{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.App img {
+  margin-right: 0;
+  margin-top: 300px;
+  margin-left: 100px;
+}
+.container{
+  flex: auto;
+  margin: auto 0;
+}
+
+.Signup {
+  color: black;
+  font-weight: 900;
+}
+
+.Login {
+  color: black;
+  font-weight: 900;
+  margin-top: 15px;
+}
+
+.username {
+  border: 2px solid black;
+  font-family: sans-serif;
+  font-size: large;
+}
+.password {
+  border: 2px solid black;
+  font-family: sans-serif;
+  font-size: large;
+}
+
+.userindex-btn {
+  background-color: #0b5733;
+  transition: all 0.3s ease; 
+  height: 40px;
+  width:100px;
+  text-align: center;
+  color: white;
+  cursor: pointer;
+  border-radius: 10px;
+  font-size: 24px;
+  margin: 10px auto;
+  line-height: 100%;
+  display: flex;
+}
+
+/* .Signup {
+  font: 10px;
+} */
+
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
