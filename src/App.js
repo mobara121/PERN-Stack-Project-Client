@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
+import APIURL from './helpers/environment';
 import Navbar from './Navbar';
 import UserIndex from './UserIndex/UserIndex';
 import RestaurantInfo from './RestaurantInfo/RestaurantInfo';
@@ -34,6 +35,12 @@ function App() {
 
   const protectedViews = () => {
     return (sessionToken === localStorage.getItem('token')? <RestaurantInfo token={sessionToken}/> : <UserIndex updateToken={updateToken}/>)
+  }
+
+  componentDidMount(){
+    fetch(`${APIURL}/pie`)
+    .then(response => response.json())
+    .then(pies => this.setState({pies}))
   }
 
   return (
