@@ -4,6 +4,7 @@
 
 
 body {
+  background: linear-gradient(135deg, rgba(246, 255, 0, 0.8)); 
   background-image: url('./assets/fujinraijin.jpg');
   background-size: cover;
   background-position: center center;
