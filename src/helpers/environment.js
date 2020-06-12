@@ -4,8 +4,8 @@ switch (window.location.hostname) {
     case 'localhost' || '127.0.0.1': 
         APIURL = 'http://localhost:3000';
         break;
-    case 'kcp-pieclient.herokuapp.com':
-        APIURL = 'http://kcp-pieapi.herokuapp.com'
+    case 'ramen-restaurant-list.herokuapp.com':
+        APIURL = 'https://find-ramen-restaurant.herokuapp.com'
 }
 
 

@@ -18,7 +18,7 @@ const Header = (props) =>{
         setIsOpen(newIsOpen);
     }
     return(
-        <header>
+        
             <Navbar color="faded" light expand="md">
                 <NavbarBrand href="/">Restaurant search</NavbarBrand>
                 <NavbarToggler onClick={toggle}/>
@@ -31,7 +31,7 @@ const Header = (props) =>{
                 </Collapse>
 
             </Navbar>
-        </header>
+        
     )
 }
 

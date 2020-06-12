@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Form, FormGroup, Label, Input, Button} from 'reactstrap';
-import {Link} from 'react-router-dom'
+import APIURL from '../helpers/environment';
 
 
 const Login = (props) => {
@@ -9,7 +9,7 @@ const Login = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        fetch("http://localhost:3000/user/login", {
+        fetch(`${APIURL}/user/login`, {
             method: 'POST',
             body: JSON.stringify({user: {username: username, password:password}}),
             headers: new Headers({
@@ -28,13 +28,13 @@ const Login = (props) => {
             <Form onSubmit={handleSubmit}>
                 <FormGroup>
                     <Label htmlFor="username">Username</Label>
-                    <Input onChange={(e) => setUsername(e.target.value)}className="username" name="username" value={username}></Input>
+                    <Input onChange={(e) => setUsername(e.target.value)}className="username" name="username" value={username}/>
                 </FormGroup>
                 <FormGroup>
-                <Label htmlFor="password">Password</Label>
-                    <Input onChange={(e) => setPassword(e.target.value)}className="password" name="password" value={password}></Input>
+                    <Label htmlFor="password">Password</Label>
+                    <Input onChange={(e) => setPassword(e.target.value)}className="password" name="password" value={password}/>
                 </FormGroup>
-                <Link to="/info"><Button className="userindex-btn" type="submit">Login</Button></Link>
+                <Button className="userindex-btn" type="submit">Login</Button>
             </Form>
       </div>
     );
