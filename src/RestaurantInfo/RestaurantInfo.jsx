@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {Container, Row, Col} from 'reactstrap';
 import APIURL from '../helpers/environment';
 
-const RestaurantInfo = (props) => {
+const Restaurants = (props) => {
 
     const [restaurants, setRestaurants] = useState([]);
 
@@ -12,7 +12,7 @@ const RestaurantInfo = (props) => {
         .then(json => setRestaurants(json) )
       }, []) 
 
-    const fetchRestaurantInfo = () => {
+    const fetchRestaurants = () => {
         fetch(`${APIURL}/info`, {
             method: 'GET',
             headers: new Headers ({
@@ -20,12 +20,12 @@ const RestaurantInfo = (props) => {
                 'Authorization': props.token
             })
         }).then((res)=> res.json())
-        .then((infoData) => {
-            setRestaurants(infoData)
+        .then((logData) => {
+            setRestaurants(logData)
         })
     }
     useEffect(() => {
-        fetchRestaurantInfo();
+        fetchRestaurants();
     }, [])
 
     return(
@@ -42,4 +42,4 @@ const RestaurantInfo = (props) => {
     )
 }
 
-export default RestaurantInfo;
+export default Restaurants;

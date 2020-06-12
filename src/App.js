@@ -39,7 +39,6 @@ function App() {
       <Header clickLogout={clearToken}/>
       <div className="App">
         <img src={"ramen.png"} alt="ramen"/>
-        {/* <UserIndex updateToken={updateToken}/> */}
         {protectedViews()}
       </div>       
       <Footer />
