@@ -6,34 +6,61 @@ import { Col, Row, Button, Form, FormGroup, Label, Input} from 'reactstrap';
 const RestaurantCreate = (props) => {
     const [zipcode, setZipcode] = useState('');
     const [pricerange, setPricerange] = useState('');
-    const [souptype, setSouptype] = useState('');
+    const [topping, setTopping] = useState('');
+    const [souptype, setSouptype] = useState(''); 
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        fetch(`${APIURL}/info`, {
+            method: 'POST',
+            body: JSON.stringify({info: {zipcode: zipcode, pricerange: pricerange, topping: topping, souptype: souptype}}),
+            headers: new Headers({
+                'Content-type': 'application/json',
+                'Authorization': props.token
+            })
+        }).then((res) => res.json())
+        .then((logData) => {
+            console.log(logData);
+            setZipcode('');
+            setPricerange('');
+            setTopping('');
+            setSouptype('')
+            props.fetchRestaurants();
+        })
+    }
     
     return(
         <>
         <h3>Restaurant Search</h3>
-        <Form>
+        <Form onSubmit={handleSubmit}>
             <Row form>
-                <Col md={4}>
+                <Col md={3}>
                     <FormGroup>
                         <Label htmlFor="zipcode">Zip</Label>
-                        <Input type="text" name="zip" value={zipcode}/>
+                        <Input type="text" name="zip" value={zipcode} onChange={(e)=> setZipcode(e.target.value)}/>
                     </FormGroup>
                 </Col>
-                <Col md={4}>
+                <Col md={3}>
                     <FormGroup>
-                        <Label htmlFor="pricerange">Price</Label>
-                        <Input type="select" name="pricerange" value={pricerange}>
-                        <option value="under 10">1: under 10 USD</option>
-                        <option value="10 - 15">2: 10 - 15 USD</option>
-                        <option value="15 - 20">3: 15 - 20 USD</option>
-                        <option value="over 20">4: over 20 USD</option>
+                        <Label htmlFor="pricerange">Price(choose one)</Label>
+                        <Input type="select" name="pricerange" value={pricerange} onChange={(e)=> setPricerange(e.target.value)}>
+                        <option value="under 10">under $10</option>
+                        <option value="10 - 15">$10 - 15</option>
+                        <option value="15 - 20">$15 - 20</option>
+                        <option value="over 20">over $20</option>
                         </Input>
                     </FormGroup>
                 </Col>
-                <Col md={4}>
+                <Col md={3}>
                     <FormGroup>
-                        <Label htmlFor="souptype">Soup type</Label>
-                        <Input type="select" name="souptype" value={souptype}>
+                        <Label htmlFor="topping">Zip</Label>
+                        <Input type="text" name="topping" value={topping} onChange={(e)=> setTopping(e.target.value)}/>
+                    </FormGroup>
+                </Col>
+                <Col md={3}>
+                    <FormGroup>
+                        <Label htmlFor="souptype">Soup type(choose one)</Label>
+                        <Input type="select" name="souptype" value={souptype} onChange={(e)=> setSouptype(e.target.value)}>
                         <option value="salt">Salt(Shio)</option>
                         <option value="soy sauce">Soy sauce(Shoyu)</option>
                         <option value="miso">Miso(Bean paste)</option>
@@ -41,7 +68,7 @@ const RestaurantCreate = (props) => {
                         </Input>
                     </FormGroup>
                 </Col>
-            <Button>Search</Button>
+            <Button>Submit</Button>
             </Row>
         </Form>
         </>

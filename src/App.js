@@ -37,10 +37,10 @@ function App() {
       <h1 className="title-en">Ramen Restaurant</h1>
       <h3 className="title-jp">ラーメン いただきます。</h3> 
       <Header clickLogout={clearToken}/>
-      <div className="App">
-        <img src={"ramen.png"} alt="ramen"/>
+      {/* <div className="App"> */}
+        {/* <img src={"ramen.png"} alt="ramen"/> */}
         {protectedViews()}
-      </div>       
+      {/* </div>        */}
       <Footer />
     </div>
   );
