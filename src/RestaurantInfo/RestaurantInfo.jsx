@@ -27,7 +27,7 @@ const Restaurants = (props) => {
     }
     useEffect(() => {
         fetchRestaurants();
-    }, [])
+    }, )
 
     return(
         <Container>
