@@ -31,14 +31,14 @@ const Restaurants = (props) => {
 
     return(
         <Container>
-            <Row>
-                <Col md="3">
+            {/* <Row>
+                <Col md="3"> */}
                     <RestaurantCreate fetchRestaurants={fetchRestaurants} token={props.token} />
-                </Col>
-                <Col md="9">
+                {/* </Col>
+                <Col md="9"> */}
                     <h2>Restaurant table will be here later.</h2>
-                </Col>
-            </Row>
+                {/* </Col>
+            </Row> */}
         </Container>
     )
 }
