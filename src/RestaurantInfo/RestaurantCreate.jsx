@@ -62,10 +62,10 @@ const RestaurantCreate = (props) => {
                     <FormGroup>
                         <Label htmlFor="souptype">Soup type(choose one)</Label>
                         <Input type="select" name="souptype" value={souptype} onChange={(e)=> setSouptype(e.target.value)}>
-                        <option value="salt">Salt(Shio)</option>
-                        <option value="soy sauce">Soy sauce(Shoyu)</option>
-                        <option value="miso">Miso(Bean paste)</option>
-                        <option value="Tonkotsu">Tonkotsu(Pork born)</option>
+                        <option value="salt">Salt (塩 Shio)</option>
+                        <option value="soy sauce">Soy sauce (醤油 Shoyu)</option>
+                        <option value="miso">Miso (味噌 Bean paste)</option>
+                        <option value="Tonkotsu">Tonkotsu (豚骨 Pork born)</option>
                         </Input>
                     </FormGroup>
                 </Col>

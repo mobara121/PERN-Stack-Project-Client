@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {Container, Row, Col} from 'reactstrap';
 import RestaurantCreate from './RestaurantCreate';
+import RestaurantTable from './RestaurantTable';
 import APIURL from '../helpers/environment';
 
 const Restaurants = (props) => {
@@ -36,7 +37,7 @@ const Restaurants = (props) => {
                     <RestaurantCreate fetchRestaurants={fetchRestaurants} token={props.token} />
                 {/* </Col>
                 <Col md="9"> */}
-                    <h2>Restaurant table will be here later.</h2>
+                    <RestaurantTable restaurants={restaurants} fetchRestaurants={fetchRestaurants} token={props.token}/>
                 {/* </Col>
             </Row> */}
         </Container>
