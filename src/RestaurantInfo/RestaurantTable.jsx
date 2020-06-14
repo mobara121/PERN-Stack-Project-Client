@@ -16,7 +16,7 @@ const RestaurantTable = (props)=> {
         }).then(()=> props.fetchRestaurants())
     }
 
-    const restaurantMapper = () => {
+    const restaurantMapper = (props) => {
         return props.restaurants.map((restaurant, index) => {
             return(
                 <tr key={index}>
