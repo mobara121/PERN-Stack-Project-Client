@@ -24,8 +24,10 @@ const Restaurants = (props) => {
         }).then((res)=> res.json())
         .then((logData) => {
             setRestaurants(logData)
+            console.log(logData)
         })
     }
+
     useEffect(() => {
         fetchRestaurants();
     }, [])

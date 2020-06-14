@@ -6,15 +6,15 @@ import APIURL from '../helpers/environment';
 
 const RestaurantCreate = (props) => {
     const [zipcode, setZipcode] = useState('');
-    const [pricerange, setPricerange] = useState('');
+    const [price, setPrice] = useState('');
     const [topping, setTopping] = useState('');
-    const [souptype, setSouptype] = useState(''); 
+    const [soup, setSoup] = useState(''); 
 
     const handleSubmit = (e) => {
         e.preventDefault();
         fetch(`${APIURL}/info/create`, {
             method: 'POST',
-            body: JSON.stringify({info: {zipcode: zipcode, pricerange: pricerange, topping: topping, souptype: souptype}}),
+            body: JSON.stringify({info: {zipcode: zipcode, price: price, topping: topping, soup: soup}}),
             headers: new Headers({
                 'Content-type': 'application/json',
                 'Authorization': props.token
@@ -23,9 +23,9 @@ const RestaurantCreate = (props) => {
         .then((logData) => {
             console.log(logData);
             setZipcode('');
-            setPricerange('');
+            setPrice('');
             setTopping('');
-            setSouptype('')
+            setSoup('')
             props.fetchRestaurants();
         })
     }
@@ -43,8 +43,8 @@ const RestaurantCreate = (props) => {
                 </Col>
                 <Col md={3}>
                     <FormGroup>
-                        <Label htmlFor="pricerange">Price(choose one)</Label>
-                        <Input type="select" name="pricerange" value={pricerange} onChange={(e)=> setPricerange(e.target.value)}>
+                        <Label htmlFor="price">Price(choose one)</Label>
+                        <Input type="select" name="price" value={price} onChange={(e)=> setPrice(e.target.value)}>
                         <option value="under 10">under $10</option>
                         <option value="10 - 15">$10 - 15</option>
                         <option value="15 - 20">$15 - 20</option>
@@ -54,14 +54,14 @@ const RestaurantCreate = (props) => {
                 </Col>
                 <Col md={3}>
                     <FormGroup>
-                        <Label htmlFor="topping">Zip</Label>
+                        <Label htmlFor="topping">Topping</Label>
                         <Input type="text" name="topping" value={topping} onChange={(e)=> setTopping(e.target.value)}/>
                     </FormGroup>
                 </Col>
                 <Col md={3}>
                     <FormGroup>
-                        <Label htmlFor="souptype">Soup type(choose one)</Label>
-                        <Input type="select" name="souptype" value={souptype} onChange={(e)=> setSouptype(e.target.value)}>
+                        <Label htmlFor="soup">Soup type(choose one)</Label>
+                        <Input type="select" name="soup" value={soup} onChange={(e)=> setSoup(e.target.value)}>
                         <option value="salt">Salt (塩 Shio)</option>
                         <option value="soy sauce">Soy sauce (醤油 Shoyu)</option>
                         <option value="miso">Miso (味噌 Bean paste)</option>

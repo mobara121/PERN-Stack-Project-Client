@@ -16,15 +16,15 @@ const RestaurantTable = (props)=> {
         }).then(()=> props.fetchRestaurants())
     }
 
-    const restaurantsMapper = () => {
+    const restaurantMapper = () => {
         return props.restaurants.map((restaurant, index) => {
             return(
                 <tr key={index}>
                     <th scope="row">{restaurant.id}</th>
                     <td>{restaurant.zipcode}</td>
-                    <td>{restaurant.pricerange}</td>
+                    <td>{restaurant.price}</td>
                     <td>{restaurant.topping}</td>
-                    <td>{restaurant.souptype}</td>
+                    <td>{restaurant.soup}</td>
                     <td>
                         <Button>
                             <EditIcon style={{ color: "green"}}/>
@@ -49,11 +49,11 @@ const RestaurantTable = (props)=> {
                     <th>Zipcode</th>
                     <th>Pricerange</th>
                     <th>Topping</th>
-                    <th>Souptype</th>
+                    <th>Soup</th>
                 </tr>
             </thead>
             <tbody>
-                {restaurantsMapper()}
+                {restaurantMapper()}
             </tbody>
         </Table>
         </>
