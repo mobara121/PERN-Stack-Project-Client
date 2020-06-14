@@ -12,7 +12,7 @@ const RestaurantCreate = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch(`${APIURL}/info`, {
+        fetch(`${APIURL}/info/create`, {
             method: 'POST',
             body: JSON.stringify({info: {zipcode: zipcode, pricerange: pricerange, topping: topping, souptype: souptype}}),
             headers: new Headers({
