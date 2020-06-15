@@ -6,7 +6,7 @@ import APIURL from '../helpers/environment';
 
 const RestaurantTable = (props)=> {
 
-    const deleteRestaurants = (restaurant) => {
+    const deleteRestaurant = (restaurant) => {
         fetch(`${APIURL}/info/delete/${restaurant.id}`, {
             method: 'DELETE',
             headers: new Headers ({
@@ -16,7 +16,7 @@ const RestaurantTable = (props)=> {
         }).then(()=> props.fetchRestaurants())
     }
 
-    const restaurantMapper = (props) => {
+    const restaurantMapper = () => {
         return props.restaurants.map((restaurant, index) => {
             return(
                 <tr key={index}>
@@ -26,10 +26,10 @@ const RestaurantTable = (props)=> {
                     <td>{restaurant.topping}</td>
                     <td>{restaurant.soup}</td>
                     <td>
-                        <Button>
+                        <Button onClick={() => {props.editUpdateRestaurant(restaurant); props.updateOn()}}>
                             <EditIcon style={{ color: "green"}}/>
                         </Button>
-                        <Button onClick={() => {deleteRestaurants(restaurant)}}>
+                        <Button onClick={() => {deleteRestaurant(restaurant)}}>
                             <DeleteIcon color="secondary"/>
                         </Button>
                     </td>
