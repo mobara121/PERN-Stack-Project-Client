@@ -19,7 +19,7 @@ const Search = () => {
             "method": "GET",
             "headers": {
                 "x-rapidapi-host": "tripadvisor1.p.rapidapi.com",
-                "x-rapidapi-key": "805775adabmsh789a61b46d2735ap1c0616jsn75274529ed86"
+                "x-rapidapi-key": "eaea6c1207msh47fa2ffe7c09b28p1b046cjsnb84260dece3b"
             }
         })
         .then((res)=> res.json())
