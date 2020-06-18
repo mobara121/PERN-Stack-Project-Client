@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import { Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody } from 'reactstrap';
-import APIURL from '../helpers/environment';
 
 const RestaurantEdit = (props) => {
     const [editZip, setEditZip] = useState(props.restaurantToUpdate.zipcode);
@@ -8,26 +7,18 @@ const RestaurantEdit = (props) => {
     const [editTopping, setEditTopping] = useState(props.restaurantToUpdate.topping);
     const [editSoup, setEditSoup] = useState(props.restaurantToUpdate.soup);
 
-    const restaurantUpdate = (event, restaurant) => {
+    const RestaurantUpdate = (event, restaurant) => {
         event.preventDefault();
-        fetch(`${APIURL}/info/update/${props.restaurantToUpdate.id}`,{
-            method: 'PUT',
-            body: JSON.stringify({info:{zipcode: editZip, price: editPrice, topping: editTopping, soup: editSoup}}),
-            headers: new Headers({
-                'Content-Type': 'application/json',
-                'Authorization': props.token
-            })
-        }).then((res) => {
-            props.fetchRestaurants();
-            props.updateOff();
-        })
+        fetch()
     }
+
+
 
     return(
         <Modal isOpen={true}>
             <ModalHeader>Want to update?</ModalHeader>
             <ModalBody>
-                <Form onSubmit={restaurantUpdate}>
+                <Form>
                     <FormGroup>
                         <Label htmlFor="zipcode">Edit Zipcode</Label>
                         <Input type="text" name="zip" value={editZip} onChange={(e)=> setEditZip(e.target.value)}/>

@@ -16,6 +16,8 @@
     "react-scripts": "3.0.1",
     "react-spinners": "^0.5.4",
     "reactstrap": "^8.0.0",
+    "request": "^2.88.2",
+    "styled-components": "^5.1.1",
     "youtube-api-search": "0.0.5"
   },
   "scripts": {

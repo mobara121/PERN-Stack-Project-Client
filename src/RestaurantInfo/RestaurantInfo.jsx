@@ -1,8 +1,10 @@
 import React, {useState, useEffect} from 'react';
-import {Container, Row, Col} from 'reactstrap';
+import {Container} from 'reactstrap';
+import styled from 'styled-components';
 import RestaurantCreate from './RestaurantCreate';
 import RestaurantTable from './RestaurantTable';
 import RestaurantEdit from './RestaurantEdit';
+import RestaurantSearch from './RestaurantSearch';
 import APIURL from '../helpers/environment';
 
 const Restaurants = (props) => {
@@ -11,14 +13,10 @@ const Restaurants = (props) => {
     const [updateActive, setUpdateActive] = useState(false);
     const [restaurantToUpdate, setRestaurantToUpdate] = useState({});
 
-    useEffect(() => {
-        fetch(`${APIURL}/info`)
-        .then(response => response.json())
-        .then(json => setRestaurants(json) )
-      }, []) 
 
     const fetchRestaurants = () => {
-        fetch(`${APIURL}/info`, {
+        console.log(props)
+        fetch(`${APIURL}/info/get`, {
             method: 'GET',
             headers: new Headers ({
                 'Content-Type': 'application/json',
@@ -48,17 +46,22 @@ const Restaurants = (props) => {
         setUpdateActive(false);
     }
 
+    const Div = styled.div`
+        margin-top: 60px;
+    `;
+
     return(
         <Container>
-            {/* <Row>
-                <Col md="3"> */}
+                <Div>
                     <RestaurantCreate fetchRestaurants={fetchRestaurants} token={props.token} />
-                {/* </Col>
-                <Col md="9"> */}
+
                     <RestaurantTable restaurants={restaurants} editUpdateRestaurant={editUpdateRestaurant} updateOn={updateOn} fetchRestaurants={fetchRestaurants} token={props.token}/>
-                {/* </Col>
-            </Row> */}
-                {updateActive ? <RestaurantEdit restaurantToUpdate={restaurantToUpdate} updateOff={updateOff} token={props.token} fetchRestaurants={fetchRestaurants}/> : <></>}
+
+                    {updateActive ? <RestaurantEdit restaurantToUpdate={restaurantToUpdate} updateOff={updateOff} token={props.token} fetchRestaurants={fetchRestaurants}/> : <></>}
+                </Div>
+                <Div>
+                    <RestaurantSearch />
+                </Div>
         </Container>
     )
 }

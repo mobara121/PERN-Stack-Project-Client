@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
-
+import { createMuiTheme, responsiveFontSizes, ThemeProvider } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 import './App.css';
-// import APIURL from './helpers/environment';
 import Header from './home/Navbar';
+import norenPic from './assets/publicdomainq-0017979qhtovi.png';
 import UserIndex from './UserIndex/UserIndex';
+import styled from 'styled-components'
 import RestaurantInfo from './RestaurantInfo/RestaurantInfo';
-import Footer from './Footer'
+
 
 function App() {
   const [sessionToken, setSessionToken] = useState('')
@@ -31,18 +33,32 @@ function App() {
     return (sessionToken === localStorage.getItem('token')? <RestaurantInfo token={sessionToken}/> : <UserIndex updateToken={updateToken}/>)
   }
 
+  const NorenPic = styled.img`
+      width: 40%;
+      padding-top: 30px;
+      display: flex;
+      justify-content: center;
+      margin: 0 auto;
+
+  `;
+
+  let theme = createMuiTheme();
+  theme = responsiveFontSizes(theme);
+
+
+
   return (
 
     <div className="Home">
-      <h1 className="title-en">Ramen Restaurant</h1>
-      <h3 className="title-jp">ラーメン いただきます。</h3> 
       <Header clickLogout={clearToken}/>
-      {/* <div className="App"> */}
-        {/* <img src={"ramen.png"} alt="ramen"/> */}
+      <ThemeProvider theme={theme}>
+      <Typography variant="h1" className="title-en" >Ramen Restaurant</Typography>
+      <Typography variant="h3" className="title-jp">ラーメン いただきます。</Typography>     
+      </ThemeProvider>
+      <NorenPic src={norenPic} alt="#"/>
         {protectedViews()}
-      {/* </div>        */}
-      <Footer />
     </div>
+    
   );
 }
 

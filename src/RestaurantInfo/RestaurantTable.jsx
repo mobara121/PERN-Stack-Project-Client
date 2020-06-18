@@ -17,20 +17,22 @@ const RestaurantTable = (props)=> {
     }
 
     const restaurantMapper = () => {
+        console.log(props)
         return props.restaurants.map((restaurant, index) => {
             return(
                 <tr key={index}>
                     <th scope="row">{restaurant.id}</th>
                     <td>{restaurant.zipcode}</td>
+                    <td>{restaurant.name}</td>
                     <td>{restaurant.price}</td>
                     <td>{restaurant.topping}</td>
                     <td>{restaurant.soup}</td>
                     <td>
                         <Button onClick={() => {props.editUpdateRestaurant(restaurant); props.updateOn()}}>
-                            <EditIcon style={{ color: "green"}}/>
-                        </Button>
+                            <EditIcon />
+                        </Button><span>  </span>
                         <Button onClick={() => {deleteRestaurant(restaurant)}}>
-                            <DeleteIcon color="secondary"/>
+                            <DeleteIcon />
                         </Button>
                     </td>
                 </tr>
@@ -40,16 +42,16 @@ const RestaurantTable = (props)=> {
 
     return(
         <>
-        <h3>Ramen Restaurant record</h3>
         <hr/>
         <Table striped>
             <thead>
                 <tr>
                     <th>#</th>
                     <th>Zipcode</th>
-                    <th>Pricerange</th>
+                    <th>restaurant Name</th>
+                    <th>Price range</th>
                     <th>Topping</th>
-                    <th>Soup</th>
+                    <th>Soup Type</th>
                 </tr>
             </thead>
             <tbody>

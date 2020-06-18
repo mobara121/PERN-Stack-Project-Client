@@ -8,6 +8,8 @@ import {
     NavbarToggler,
     Button
 } from 'reactstrap';
+import styled from 'styled-components';
+
 
 const Header = (props) =>{
 
@@ -17,21 +19,26 @@ const Header = (props) =>{
         let newIsOpen =!isOpen;
         setIsOpen(newIsOpen);
     }
+
+    const Wrapper = styled.div`
+        padding: 20px;
+    `;
+
     return(
-        
+        <Wrapper>
             <Navbar color="faded" light expand="md">
-                <NavbarBrand href="/">Restaurant search</NavbarBrand>
+                <NavbarBrand href="/"></NavbarBrand>
                 <NavbarToggler onClick={toggle}/>
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="ml-auto" navbar>
                         <NavItem>
-                            <Button onClick={props.clickLogout}>Logout</Button>
+                            <Button className="navbtn" onClick={props.clickLogout}>Logout</Button>
                         </NavItem>
                     </Nav>
                 </Collapse>
 
             </Navbar>
-        
+        </Wrapper>
     )
 }
 
