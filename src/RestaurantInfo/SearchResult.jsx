@@ -22,7 +22,6 @@ const SearchResult = (props) => {
         <Table striped>
             <thead>
                 <tr>
-                    
                     <th>restaurant Name</th>
                     <th>website</th>
                     <th>Price level</th>
